@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Gebruiker gegevens{% endblock %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" href="/static/basic.css" type="text/css">
+{% endblock %}
+{% block content %}
+    <h1>Bewerk auteur {{id}}</h1>
+
+    <form method="POST" action="/edit_auteur/{{id}}">
+        <label for="voornaam" class="form-label">Voornaam:</label><br/>
+        <input type="text" name="voornaam" class="form-control" value="{{voornaam}}"><br/>
+        <label for="achternaam" class="form-label">Achternaam:</label><br/>
+        <input type="text" name="achternaam" class="form-control" value="{{achternaam}}"><br/>
+        <label for="geboortejaar" class="form-label">Geboortejaar:</label><br/>
+        <input type="text" name="geboortejaar" class="form-control" value="{{geboortejaar}}"><br/>
+        <label class="form-check-label" for="check">Is een medewerker?</label>
+        <input type="checkbox" name="medewerker" {{ "checked" if medewerker == 1 }} class="form-check-input" id="check"><br/>
+        <label class="form-check-label" for="check">Is met pensioen?</label>
+        <input type="checkbox" name="met_pensoen" {{ "checked" if met_pensioen == 1 }} class="form-check-input" id="check"><br/><br/>
+        <button type="submit" class="btn btn-primary">Bewerk auteur</button>
+    </form>
+{% endblock %}

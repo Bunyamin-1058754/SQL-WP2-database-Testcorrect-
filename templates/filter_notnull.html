@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Filter not null{% endblock %}
+{% block content %}
+    <h1>Database onderzoek</h1>
+    <p>Alle NOT NULL waardes <b>{{ table_name }} tabel</b>:</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          {% for column in columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          {% for field in row %}
+          <td>{{ field }}</td>
+          {% endfor %}
+          <td><a class="btn btn-primary" href="/vraag/{{ row[0] }}"> Bewerk </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+{% endblock %}

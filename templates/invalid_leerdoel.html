@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Ongeldig leerdoel{% endblock %}
+{% block content %}
+    <h1>Ongeldige leerdoelen</h1>
+    <p>Hier zie je alle ongeldige leerdoelen in de {{ table_name }} tabel</p>
+    <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/csv_export_invalid/{{ table_name }}'">Exporteer naar csv</button>
+    <table class="table table-striped">
+        <tr>
+            {% for column in columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in rows %}
+        <tr>
+            {% for field in row %}
+            <td>{{ field }}</td>
+            {% endfor %}
+            <td><a class="btn btn-primary" href="/vraag/{{ row[0] }}"> Bewerk </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

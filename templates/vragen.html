@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ table_name }} tabel{% endblock %}
+{% block content %}
+    <h1>Database onderzoek</h1>
+    <p><b>{{ table_name }} column</b>:</p>
+    
+    <button type="button" class="btn btn-primary" onclick="window.location.href='/invalid_leerdoel/{{ table_name }}'">Ongeldige Leerdoelen</button>
+    <button type="button" class="btn btn-success" onclick="window.location.href='/html_codes/{{ table_name }}'">Html codes</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href= '/id/{{ table_name }}'">id</button>
+    <button type="button" class="btn btn-success" onclick="window.location.href= '/leerdoel'">leerdoel</button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href= '/vragen'">vraag</button>
+    <button type="button" class="btn btn-success" onclick="window.location.href= '/auteur'">auteur</button>
+    <button type="button" class="btn btn-success" onclick="window.location.href='/filter_null/{{table_name}}'">Null waardes </button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='/filter_notnull/{{table_name}}'"> niet Null waardes </button>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='/csv_export_full/{{ table_name }}'">Exporteer naar csv</button>
+    
+    <form action="/max_value/{{table_name}}" method="post" class="mt-3">
+      <div class="input-group">
+        <span class="input-group-text">Minimale en maximale waarde:</span>
+        <input type="number" aria-label="First name" class="form-control" name="min">
+        <input type="number" aria-label="Last name" class="form-control" name="max">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    
+    
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          {% for column in columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          {% for field in row %}
+          <td>{{ field }}</td>
+          {% endfor %}
+          <td><a class="btn btn-primary" href="/vraag/{{ row[0] }}"> Bewerk </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+{% endblock %}
+
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Tabellen{% endblock %}
+
+{% block content %}
+        <h1>Database onderzoek</h1>
+        <p>Alle tabellen in de database <i>{{ database_file }}</i>:</p>
+        <div class="list-group">
+            {% if username == "admin" %}
+                <a href="/admin" class="list-group-item list-group-item-action" aria-current="true">admin panel</a>
+            {% endif %}
+            <a href="/vragen" class="list-group-item list-group-item-action" aria-current="true">vragen</a>
+            <a href="/leerdoel" class="list-group-item list-group-item-action" aria-current="true">leerdoelen</a>
+            <a href="/auteur" class="list-group-item list-group-item-action" aria-current="true">auteurs</a>
+          </div>
+{% endblock %}

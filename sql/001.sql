@@ -1,0 +1,2 @@
+SELECT*FROM vragen
+WHERE leerdoel IS NULL

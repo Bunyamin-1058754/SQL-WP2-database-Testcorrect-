@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Voeg gebruiker toe{% endblock %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" href="/static/basic.css" type="text/css">
+{% endblock %}
+{% block content %}
+    <h1>Voeg nieuwe gebruiker toe</h1>
+
+    <form method="POST" action="/adduser">
+        <div class="mb-3">
+          <label for="gebruikersnaam" class="form-label">Gebruikersnaam:</label>
+          <input type="text" name="gebruikersnaam" class="form-control" id="username" value="{{gebruikersnaam}}" aria-describedby="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="wachtwoord" class="form-label">Wachtwoord</label>
+          <input type="password" name="wachtwoord" class="form-control" value="{{wachtwoord}}" id="password" aria-describedby="username" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" name="admin" {{ "checked" if admin == 1 }} class="form-check-input" id="check">
+          <label class="form-check-label" for="check">Is een admin?</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Voeg gebruiker toe</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{super()}}
+    <link rel="stylesheet" href="/static/basic.css" type="text/css">
+{% endblock %}
+{% block content %}
+    <h1>Login Here</h1>
+
+    <form method="POST" action="/login">
+        <label for="gebruikersnaam">Gebruikersnaam:</label><br>
+        <input type="text" name="gebruikersnaam" required><br/>
+        <label for="wachtwoord">Wachtwoord:</label><br/>
+        <input type="password" name="wachtwoord" required><br/>
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

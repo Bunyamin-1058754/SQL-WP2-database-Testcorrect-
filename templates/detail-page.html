@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Detail pagina{% endblock %}
+{% block content %}
+
+    <div id="Filter">
+        <table name=" select_items">
+      {% for item in all_data %}
+      <option value="{{ item}}">{{ item}}</option>
+      {% endfor %}
+      <input type="submit" value="Filter_vragen">
+      <button href="\templates\filter_null" type="button">
+        Filter NULL
+      </button>
+      </form>
+    </div>
+{% endblock %}

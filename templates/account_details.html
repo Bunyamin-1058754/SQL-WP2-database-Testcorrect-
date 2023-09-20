@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Gebruiker gegevens{% endblock %}
+
+{% block content %}
+
+    <h1>Gegevens van {{gebruikersnaam}}</h1>
+
+    <form method="POST" action="/editaccount/{{id}}">
+        <label for="gebruikersnaam">Gebruikersnaam:</label><br>
+        <input type="text" name="gebruikersnaam" value="{{gebruikersnaam}}" readonly><br/>
+        <label for="wachtwoord">Wachtwoord:</label><br/>
+        <input type="password" name="wachtwoord" value="{{wachtwoord}}"><br/>
+        <label for="wachtwoord">Admin</label><br/>
+        <input type="checkbox" name="admin" {{ "checked" if admin == 1 }}><br/>
+        <input type="submit" value="Bewerk gebruiker">
+    </form>
+{% endblock %}

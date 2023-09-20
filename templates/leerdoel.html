@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Leerdoel tabel{% endblock %}
+{% block content %}
+    <h1>Database onderzoek</h1>
+    <p>leerdoel <b>{{ table_name }} column</b>:</p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          {% for column in columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          {% for field in row %}
+          <td>{{ field }}</td>
+          {% endfor %}
+          <td><a class="btn btn-primary" href="/edit_leerdoel/{{ row[0] }}"> Bewerk </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+{% endblock %}
+
+

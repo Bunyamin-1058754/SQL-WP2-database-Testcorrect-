@@ -1,0 +1,20 @@
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-muted">© 2022 Studiestrijders, Inc</p>
+  
+      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <img src="static/assets/img/testcorrect-logo.png" alt="logo">
+      </a>
+  
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="/table" class="nav-link px-2 text-muted">Tabellen</a></li>
+        {% if session.get('logged_in') == True %}
+          <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+        {% endif %}
+      </ul>
+    </footer>
+  </div>
